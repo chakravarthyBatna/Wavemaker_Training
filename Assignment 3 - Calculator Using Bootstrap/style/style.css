@@ -47,7 +47,7 @@
 }
 
 .belowbtn {
-    margin-bottom: 10px; /* Add margin between rows */
+    margin-bottom: 10px;
 }
 
 .calc-btn {
@@ -109,14 +109,38 @@
     margin-left: -11px;
 }
 .mt-3 {
-    margin-top: 1rem; /* Add margin-top to input box */
+    margin-top: 1rem; 
 }
 .outerContainer {
     border-color: white;
 }
-/* .editButton {
-    width: 10px;
+.buttonsGroup {
+    margin-bottom: 10px;
+}
+.editButton {
+    border: white;
+    background: initial;
+    font-size: 29px;
+    width: 66px;
+    margin-left: 6px;
+    margin-top: -42px;
+    margin-bottom: 21px;
 }
 .viewButton {
-    width: 20px;
-} */
+    border: white;
+    background: initial;
+    font-size: 27px;
+    width: 66px;
+    margin-left: -30px;
+    margin-top: -42px;
+    margin-bottom: 21px;
+}
+.helpButton {
+    border: white;
+    background: initial;
+    font-size: 30px;
+    width: 66px;
+    margin-left: 8px;
+    margin-top: -40px;
+    margin-bottom: 21px;
+}
