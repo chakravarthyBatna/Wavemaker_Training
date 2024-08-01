@@ -144,3 +144,11 @@
     margin-top: -40px;
     margin-bottom: 21px;
 }
+.blackLine {
+    border-top: 1px solid black;
+    position: absolute;
+    top: 2.5rem;
+    left: -14px;
+    margin-top: -26px;
+    width: 101%;
+}
