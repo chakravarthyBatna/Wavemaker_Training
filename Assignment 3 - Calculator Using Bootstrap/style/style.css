@@ -23,19 +23,19 @@
 .nav img {
     height: 6%;
     width: 6%;
-    border-radius: 10px;
+    /* border-radius: 10px; */
 }
 
 .nav {
-    border-radius: 30px;
-    background-color: rgba(100, 100, 75, 0.4);
+    /* border-radius: 30px; */
+    background-color: black;
     padding: 13px;
     font-size: 34px;
 }
 
 .calName {
     margin-left: 10px;
-    color: black;
+    color: white;
 }
 
 .calc {
@@ -43,7 +43,7 @@
     margin: auto;
     border: 19px solid #898080;
     padding: 2em;
-    border-radius: 30px;
+    /* border-radius: 30px; */
 }
 
 .belowbtn {

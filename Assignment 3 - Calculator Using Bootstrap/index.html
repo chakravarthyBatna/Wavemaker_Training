@@ -12,23 +12,21 @@
         <div class="border border-dark">
             <div class="nav">
                 <img src="assets/calculator.png" alt="calc logo">
-                <span class="calName">
-                    Calculator
-                </span>
+                <span class="calName">Calculator</span>
             </div>
             <div class="calc outerContainer border-dark">
                 <div class="container">
                     <div class="row">
                         <div class="container position-relative">
-                            <div class="position-absolute  top-0 start-0 mt-2 ms-2">
-                                <button class="btn  viewButton btn-secondary btn-sm">View</button>
-                                <button class="btn  editButton btn-secondary btn-sm">Edit</button>
-                                <button class="btn  helpButton btn-secondary btn-sm">Help</button>
+                            <div class="position-absolute top-0 start-0 mt-2 ms-2">
+                                <button class="btn viewButton btn-secondary btn-sm">View</button>
+                                <button class="btn editButton btn-secondary btn-sm">Edit</button>
+                                <button class="btn helpButton btn-secondary btn-sm">Help</button>
                             </div>
-                            <div class=" blackLine line-below-buttons">
+                            <div class="blackLine">
                                 <hr class="mt-5">
                             </div>
-                            <input type="text" class="full-input inputht mt-5">
+                            <input type="text" class="full-input inputht mt-5" id="calc-input" disabled>
                         </div>
                     </div>
                     <div class="row rowmg">
@@ -39,45 +37,46 @@
                         <div class="col m-2 button btn btn-secondary border-dark calc-btn">M-</div>
                     </div>
                     <div class="row rowmg">
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2190;</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">CE</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">C</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2213;</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x221A;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('←')">&#x2190;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="clearEntry()">CE</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="clearAll()">C</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('±')">&#x2213;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('√')">&#x221A;</div>
                     </div>
                     <div class="row rowmg">
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">7</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">8</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">9</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">/</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">%</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('7')">7</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('8')">8</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('9')">9</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('/')">/</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('%')">%</div>
                     </div>
                     <div class="row rowmg">
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">4</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">5</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">6</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">*</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">1/x</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('4')">4</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('5')">5</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('6')">6</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('*')">*</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('1/x')">1/x</div>
                     </div>
                     <div class="row">
                         <div class="col-10">
                             <div class="row mb-2">
-                                <div class="col-3 buttons1  belowbtn btn btn-secondary border-dark calc-btn">1</div>
-                                <div class="col-3 buttons2  belowbtn btn btn-secondary border-dark calc-btn">2</div>
-                                <div class="col-3 buttons3 belowbtn btn btn-secondary border-dark calc-btn">3</div>
-                                <div class="col-3 buttons- belowbtn btn btn-secondary border-dark calc-btn">-</div>
+                                <div class="col-3 buttons1 belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('1')">1</div>
+                                <div class="col-3 buttons2 belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('2')">2</div>
+                                <div class="col-3 buttons3 belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('3')">3</div>
+                                <div class="col-3 buttons- belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('-')">-</div>
                             </div>
                             <div class="row">
-                                <div class="col-6 buttonZero belowbtn btn btn-secondary border-dark calc-btn-0">0</div>
-                                <div class="col-3 buttonDot belowbtn btn btn-secondary border-dark calc-btn">.</div>
-                                <div class="col-3 buttonPlus belowbtn btn btn-secondary border-dark calc-btn">+</div>
+                                <div class="col-6 buttonZero belowbtn btn btn-secondary border-dark calc-btn-0" onclick="handleInput('0')">0</div>
+                                <div class="col-3 buttonDot belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('.')">.</div>
+                                <div class="col-3 buttonPlus belowbtn btn btn-secondary border-dark calc-btn" onclick="handleInput('+')">+</div>
                             </div>
                         </div>
-                        <div class="col-2  equal btn btn-secondary border-dark calc-btn-equal">=</div>
+                        <div class="col-2 equal btn btn-secondary border-dark calc-btn-equal" onclick="calculate()">=</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="script/script.js"></script>
 </body>
 </html>
