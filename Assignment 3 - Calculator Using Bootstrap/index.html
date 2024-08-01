@@ -16,11 +16,17 @@
                     Calculator
                 </span>
             </div>
-            <div class="calc border-dark">
+            <div class="calc outerContainer border-dark">
                 <div class="container">
                     <div class="row mt-3">
-                        <div class="container">
-                            <input type="text" class="full-input inputht">
+                        <div class="container position-relative">
+                            <!-- Buttons at top left of input box -->
+                            <div class="position-absolute top-0 start-0 mt-2 ms-2">
+                                <button class="btn viewButton btn-secondary btn-sm">View</button>
+                                <button class="btn editButton btn-secondary btn-sm">Edit</button>
+                                <button class="btn helpButton btn-secondary btn-sm">Help</button>
+                            </div>
+                            <input type="text" class="full-input inputht mt-5">
                         </div>
                     </div>
                     <div class="row rowmg">

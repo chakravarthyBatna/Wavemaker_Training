@@ -67,42 +67,56 @@
     width: 72px;
 }
 .buttons1 {
+    margin-top: 10px;
     margin-left: 10px;
     width: 110px;
 }
 .buttons2 {
+    margin-top: 10px;
     margin-left: 19px;
     width: 111px;
 }
 .buttons3 {
+    margin-top: 10px;
     margin-left: 17px;
     width: 115px;
 }
 .buttons- {
+    margin-top: 10px;
     margin-left: 14px;
     width: 116px;
 }
 .buttonZero {
+    
     padding: 4px;
     font-size: 38px;
     margin-left: 12px;
     width: 240px;
 }
 .buttonDot {
-    margin-left: 20px;
-    width: 107px;
+    margin-left: 17px;
+    width: 114px;
 }
 .buttonPlus {
     width: 114px;
-    margin-left: 22px;
+    margin-left: 16px;
 }
 .equal {
-    margin-top: 6px;
-    padding: 4px;
+    margin-top: 12px;
+    padding: 7px;
     font-size: 78px;
-    width: 98px;
-    margin-left: -3px;
+    width: 110px;
+    margin-left: -11px;
 }
 .mt-3 {
     margin-top: 1rem; /* Add margin-top to input box */
 }
+.outerContainer {
+    border-color: white;
+}
+/* .editButton {
+    width: 10px;
+}
+.viewButton {
+    width: 20px;
+} */
