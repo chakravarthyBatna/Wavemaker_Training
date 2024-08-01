@@ -1,5 +1,108 @@
-.container {
+.border {
+    width: 58%;
+    margin: auto;
+    margin-top: 5em;
+    border-radius: 30px;
+    color: #898080;
+    background-color: rgb(213, 236, 236);
+}
+
+.inputht {
+    border-radius: 0px;
+    height: 7em;
+    text-align: right;
+    width: 101%;
+    background-color: rgba(183, 202, 202, 0.3);
+}
+
+.btn-secondary {
+    color: black;
+    background: #ead7d7;
+}
+
+.nav img {
+    height: 6%;
+    width: 6%;
+    border-radius: 10px;
+}
+
+.nav {
+    border-radius: 30px;
+    background-color: rgba(100, 100, 75, 0.4);
+    padding: 13px;
+    font-size: 34px;
+}
+
+.calName {
+    margin-left: 10px;
+    color: black;
+}
+
+.calc {
     width: 100%;
-    height: 100vh; /*viewport height */
-    background-color: aliceblue;
+    margin: auto;
+    border: 19px solid #898080;
+    padding: 2em;
+    border-radius: 30px;
+}
+
+.belowbtn {
+    margin-bottom: 10px; /* Add margin between rows */
+}
+
+.calc-btn {
+    font-size: 43px;
+    padding: 1px;
+    height: 72px;
+    width: 72px;
+}
+
+.calc-btn-0 {
+    height: 72px;
+    width: 144px;
+}
+
+.calc-btn-equal {
+    height: 154px;
+    width: 72px;
+}
+.buttons1 {
+    margin-left: 10px;
+    width: 110px;
+}
+.buttons2 {
+    margin-left: 19px;
+    width: 111px;
+}
+.buttons3 {
+    margin-left: 17px;
+    width: 115px;
+}
+.buttons- {
+    margin-left: 14px;
+    width: 116px;
+}
+.buttonZero {
+    padding: 4px;
+    font-size: 38px;
+    margin-left: 12px;
+    width: 240px;
+}
+.buttonDot {
+    margin-left: 20px;
+    width: 107px;
+}
+.buttonPlus {
+    width: 114px;
+    margin-left: 22px;
+}
+.equal {
+    margin-top: 6px;
+    padding: 4px;
+    font-size: 78px;
+    width: 98px;
+    margin-left: -3px;
+}
+.mt-3 {
+    margin-top: 1rem; /* Add margin-top to input box */
 }

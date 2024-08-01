@@ -5,13 +5,71 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="style/style.css">
-    <title>Calculator Using Bootstrap</title>
+    <title>Calculator</title>
 </head>
 <body>
-    <main>
-        <div class="container">
-            
+    <div class="container">
+        <div class="border border-dark">
+            <div class="nav">
+                <img src="assets/calculator.png" alt="calc logo">
+                <span class="calName">
+                    Calculator
+                </span>
+            </div>
+            <div class="calc border-dark">
+                <div class="container">
+                    <div class="row mt-3">
+                        <div class="container">
+                            <input type="text" class="full-input inputht">
+                        </div>
+                    </div>
+                    <div class="row rowmg">
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MC</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MR</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MS</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">M+</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">M-</div>
+                    </div>
+                    <div class="row rowmg">
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2190;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">CE</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">C</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2213;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x221A;</div>
+                    </div>
+                    <div class="row rowmg">
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">7</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">8</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">9</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">/</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">%</div>
+                    </div>
+                    <div class="row rowmg">
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">4</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">5</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">6</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">*</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">1/x</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-10">
+                            <div class="row mb-2">
+                                <div class="col-3 buttons1  belowbtn btn btn-secondary border-dark calc-btn">1</div>
+                                <div class="col-3 buttons2  belowbtn btn btn-secondary border-dark calc-btn">2</div>
+                                <div class="col-3 buttons3 belowbtn btn btn-secondary border-dark calc-btn">3</div>
+                                <div class="col-3 buttons- belowbtn btn btn-secondary border-dark calc-btn">-</div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 buttonZero belowbtn btn btn-secondary border-dark calc-btn-0">0</div>
+                                <div class="col-3 buttonDot belowbtn btn btn-secondary border-dark calc-btn">.</div>
+                                <div class="col-3 buttonPlus belowbtn btn btn-secondary border-dark calc-btn">+</div>
+                            </div>
+                        </div>
+                        <div class="col-2  equal btn btn-secondary border-dark calc-btn-equal">=</div>
+                    </div>
+                </div>
+            </div>
         </div>
-    </main>
+    </div>
 </body>
 </html>
