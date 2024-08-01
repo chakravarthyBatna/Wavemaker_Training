@@ -1,0 +1,162 @@
+header {
+    text-align: center;
+}
+
+.inputBox1,
+.inputBox2,
+.confirmPasswordInputBox,
+.passwordInputBox {
+    margin-right: 95px;
+    width: 93%;
+    padding: 8px;
+}
+
+.genderHobbiesContainer,
+.profileFlex {
+    margin-top: 10px;
+}
+.incomeRangeDiv {
+width : 50%;
+margin-left : 10px;
+}
+.confirmBoxDiv {
+    margin-left: 10px;
+}
+
+.formContainer {
+    border: 12px solid black;
+    margin: 0 auto;
+    width: 80%;
+    max-width: 800px;
+    padding: 20px;
+    background-color: #f9f0f0;
+    font-size: 18px;
+}
+
+.flexContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.flexHobbies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.textColor {
+    color: #29ded7;
+}
+
+.firstnameContainer,
+.lastNameContainer,
+.profileFlex > div,
+.genderField,
+.hobbiesField {
+    flex: 1 1 45%;
+    margin-bottom: 10px;
+}
+
+.emailContainer,
+.bioContainer {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom : 20px;
+}
+.passwordDiv {
+margin-bottom : 20px;
+}
+
+#email,
+#bio {
+    width: 97%;
+    padding: 8px;
+}
+
+#age {
+    width: 95%;
+    padding: 8px;
+}
+
+.passwordInputBox,
+.confirmPasswordInputBox {
+    width: 95%;
+    padding: 8px;
+}
+
+.incomeFlex {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+}
+
+.sourceBox,
+#incomeRange {
+    width: 98%;
+    padding: 8px;
+}
+.sourceIncome {
+width : 50%;
+}
+
+#submit {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.buttonFlex {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.incomeRangeFlex {
+    display: flex;
+    flex-direction: column;
+}
+
+.rangeDivBox {
+    display: flex;
+    align-items: center;
+}
+
+.profileFlex {
+    display: flex;
+    gap: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .flexContainer,
+    .genderHobbiesContainer,
+    .incomeFlex,
+    .profileFlex {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .buttonFlex {
+        justify-content: center;
+    }
+
+    .genderSelectionDiv,
+    .flexHobbies {
+        flex-direction: column;
+    }
+
+    .inputBox1,
+    .inputBox2,
+    .passwordInputBox,
+    .confirmPasswordInputBox,
+    .sourceBox,
+    #incomeRange {
+        width: 100%;
+    }
+
+    .formContainer {
+        width: 90%;
+    }
+}
