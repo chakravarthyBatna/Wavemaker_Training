@@ -1,0 +1,30 @@
+#timeTable {
+    text-align: center;
+}
+.assignmentHeading {
+    text-align: center;
+    color : blue;
+}
+table, th, td{
+    padding : 10px;
+    border : 1px solid;
+    text-align : center;
+    font-size: 20px;
+    border-collapse: collapse;
+}
+table {
+    width : 100%;
+}
+.headingSection {
+    background-color : grey;
+}
+.longPeriod {
+    background-color : AliceBlue;
+}
+.days {
+    background-color : CornflowerBlue;
+}
+.lunchPeriod {
+    background-color : AntiqueWhite;
+}
+
