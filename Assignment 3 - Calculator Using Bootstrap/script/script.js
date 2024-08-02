@@ -15,19 +15,16 @@ function clearAll() {
 function clearEntry() {
     inputBoxDisplay.value = inputBoxDisplay.value.slice(0, -1);
 }
-
 function clearMemory() {
     localStorage.removeItem('memory');
     inputBoxDisplay.value = '';
 }
-
 function memoryRecall() {
     const memory = localStorage.getItem('memory');
     if (memory) {
         inputBoxDisplay.value = memory;
     }
 }
-
 function memoryStore() {
     localStorage.setItem('memory', inputBoxDisplay.value);
     inputBoxDisplay.value = '';
@@ -44,7 +41,6 @@ function memoryMinus() {
     const display = parseFloat(inputBoxDisplay.value) || 0;
     localStorage.setItem('memory', memory - display);
 }
-
 function calculate() {
     try {
         let expression = inputBoxDisplay.value.replace(/√/g, 'Math.sqrt');

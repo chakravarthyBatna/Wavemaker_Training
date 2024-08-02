@@ -4,7 +4,6 @@ This is Wavemaker training assignments. All assignments are uploaded in this Wav
 
 1. **Assignment 1: Time Table**
    - **Given on:** 31-07-2024
-   ![Time Table](Assignment 3 - Calculator Using Bootstrap\assets\calculator output.jpg)
 
 2. **Assignment 2: Create Account Form**
    - **Given on:** 31-07-2024
@@ -12,4 +11,5 @@ This is Wavemaker training assignments. All assignments are uploaded in this Wav
 
 3. **Assignment 3: Calculator using Bootstrap**
    - **Given on:** 01-08-2024
-   ![Calculator using Bootstrap](path/to/calculator-image.jpg)
+    <img width="760" alt="Assignment1-output" src="Assignment 3 - Calculator Using Bootstrap\assets\calculator output.jpg">
+   
