@@ -1,96 +1,56 @@
-let calcInput = document.getElementById('calc-input');
-let currentInput = '';
-let memory = 0;
+const inputBoxDisplay = document.getElementById('inputBox');
 
 function handleInput(value) {
-    switch (value) {
-        case '←':
-            currentInput = currentInput.slice(0, -1);
-            break;
-        case '±':
-            if (currentInput.startsWith('-')) {
-                currentInput = currentInput.slice(1);
-            } else {
-                currentInput = '-' + currentInput;
-            }
-            break;
-        case '√':
-            currentInput = Math.sqrt(parseFloat(currentInput)).toString();
-            break;
-        case '1/x':
-            currentInput = (1 / parseFloat(currentInput)).toString();
-            break;
-        default:
-            currentInput += value;
+    if (inputBoxDisplay.value === '0' || inputBoxDisplay.value === 'Invalid') {
+        inputBoxDisplay.value = value;
+    } else {
+        inputBoxDisplay.value += value;
     }
-    calcInput.value = currentInput;
-}
-
-function clearEntry() {
-    currentInput = '';
-    calcInput.value = '';
 }
 
 function clearAll() {
-    currentInput = '';
-    calcInput.value = '';
-    memory = 0;
+    inputBoxDisplay.value = '';
+}
+
+function clearEntry() {
+    inputBoxDisplay.value = inputBoxDisplay.value.slice(0, -1);
+}
+
+function clearMemory() {
+    localStorage.removeItem('memory');
+    inputBoxDisplay.value = '';
+}
+
+function memoryRecall() {
+    const memory = localStorage.getItem('memory');
+    if (memory) {
+        inputBoxDisplay.value = memory;
+    }
+}
+
+function memoryStore() {
+    localStorage.setItem('memory', inputBoxDisplay.value);
+    inputBoxDisplay.value = '';
+}
+
+function memoryPlus() {
+    const memory = parseFloat(localStorage.getItem('memory')) || 0;
+    const display = parseFloat(inputBoxDisplay.value) || 0;
+    localStorage.setItem('memory', memory + display);
+}
+
+function memoryMinus() {
+    const memory = parseFloat(localStorage.getItem('memory')) || 0;
+    const display = parseFloat(inputBoxDisplay.value) || 0;
+    localStorage.setItem('memory', memory - display);
 }
 
 function calculate() {
     try {
-        currentInput = eval(currentInput).toString();
-    } catch (error) {
-        currentInput = 'Error';
+        let expression = inputBoxDisplay.value.replace(/√/g, 'Math.sqrt');
+        expression = expression.replace(/Math.sqrt([0-9.]+)/g, 'Math.sqrt($1)');
+        inputBoxDisplay.value = eval(expression);
+    } catch (e) {
+        inputBoxDisplay.value = 'Invalid';
     }
-    calcInput.value = currentInput;
 }
-
-
-function memoryClear() {
-    memory = 0;
-}
-
-function memoryRecall() {
-    currentInput += memory.toString();
-    calcInput.value = currentInput;
-}
-
-function memoryStore() {
-    memory = parseFloat(currentInput);
-    currentInput = '';
-    calcInput.value = '';
-}
-
-function memoryAdd() {
-    memory += parseFloat(currentInput);
-    currentInput = '';
-    calcInput.value = '';
-}
-
-function memorySubtract() {
-    memory -= parseFloat(currentInput);
-    currentInput = '';
-    calcInput.value = '';
-}
-
-
-document.querySelectorAll('.calc-btn').forEach(btn => {
-    switch (btn.innerText) {
-        case 'MC':
-            btn.onclick = memoryClear;
-            break;
-        case 'MR':
-            btn.onclick = memoryRecall;
-            break;
-        case 'MS':
-            btn.onclick = memoryStore;
-            break;
-        case 'M+':
-            btn.onclick = memoryAdd;
-            break;
-        case 'M-':
-            btn.onclick = memorySubtract;
-            break;
-    }
-});

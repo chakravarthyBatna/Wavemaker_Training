@@ -26,21 +26,21 @@
                             <div class="blackLine">
                                 <hr class="mt-5">
                             </div>
-                            <input type="text" class="full-input inputBox mt-5" id="calc-input" disabled>
+                            <input type="text" class="full-input inputBox mt-5" id="inputBox" disabled>
                         </div>
                     </div>
                     <div class="row rowmg">
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MC</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MR</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">MS</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">M+</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">M-</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="clearMemory()">MC</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="memoryRecall()">MR</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="memoryStore()">MS</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="memoryPlus()">M+</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="memoryMinus()">M-</div>
                     </div>
                     <div class="row rowmg">
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('←')">&#x2190;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2190;</div>
                         <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="clearEntry()">CE</div>
                         <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="clearAll()">C</div>
-                        <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('±')">&#x2213;</div>
+                        <div class="col m-2 button btn btn-secondary border-dark calc-btn">&#x2213;</div>
                         <div class="col m-2 button btn btn-secondary border-dark calc-btn" onclick="handleInput('√')">&#x221A;</div>
                     </div>
                     <div class="row rowmg">
