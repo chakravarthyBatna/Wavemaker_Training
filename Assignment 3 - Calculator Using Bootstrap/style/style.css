@@ -7,9 +7,11 @@
     background-color: rgb(213, 236, 236);
 }
 
-.inputht {
+.inputBox {
+    color: black;
+    font-size: 38px;
     border-radius: 0px;
-    height: 7em;
+    height: 3em;
     text-align: right;
     width: 101%;
     background-color: rgba(183, 202, 202, 0.3);
