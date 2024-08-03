@@ -6,7 +6,6 @@
     color: #898080;
     background-color: rgb(213, 236, 236);
 }
-
 .inputBox {
     color: black;
     font-size: 38px;
@@ -16,49 +15,38 @@
     width: 101%;
     background-color: rgba(183, 202, 202, 0.3);
 }
-
 .btn-secondary {
     color: black;
     background: #ead7d7;
 }
-
 .nav img {
     height: 6%;
     width: 6%;
-    /* border-radius: 10px; */
 }
-
 .nav {
-    /* border-radius: 30px; */
     background-color: black;
     padding: 13px;
     font-size: 34px;
 }
-
 .calName {
     margin-left: 10px;
     color: white;
 }
-
 .calc {
     width: 100%;
     margin: auto;
     border: 19px solid #898080;
     padding: 2em;
-    /* border-radius: 30px; */
 }
-
 .belowbtn {
     margin-bottom: 10px;
 }
-
 .calc-btn {
     font-size: 43px;
     padding: 1px;
     height: 72px;
     width: 72px;
 }
-
 .calc-btn-0 {
     height: 72px;
     width: 144px;
@@ -148,9 +136,7 @@
 }
 .blackLine {
     padding-left: 0px;
-    /* border-top: 1px solid black; */
     color: black;
-    /* position: absolute; */
     top: 2.5rem;
     left: -14px;
     margin-top: -36px;
