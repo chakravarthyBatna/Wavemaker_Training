@@ -1,78 +1,114 @@
-html {
-    font-family: Noto Sans, sans-serif;
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #f9f9f9;
 }
-.profileImg {
-    width: 500px;
-    padding: 2px;
+.profile-header-section {
+  background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+  padding: 20px;
+  border-bottom: 2px solid #e1e1e1;
+  margin-bottom: 20px;
 }
-.profileDiv {
-    display: flex;
+.profile-img {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
-.profileMainDescription {
-    margin-left: 85px;
-    font-size: 37px;
+.profile-img img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border: 4px solid #ffffff;
 }
-.profileName {
-    margin-left: 48px;
-    font-size: 94px;
-    margin-top: 82px;
+.profile-img .name {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
 }
-.skillsAndExperienceDiv {
-    display: flex;
+.profile-img .title {
+  font-size: 1.2rem;
+  color: #555;
 }
-.list-group-item {
-    color: white;
-    border: none;
-    background-color: transparent;
-  }
-  .skillsAndExperienceDiv {
-    margin-top: -152px;
-    margin-left: 800px;
-  }
-  .list-group-item {
-    margin: -8px;
-    font-size: 28px;
-  }
-  .experienceHeading {
-    margin-bottom: 20px;
-    font-size: 50px;
-    margin-left: 400px;
-  }
-  .skillsHeading {
-    font-size: 50px;
-    margin-bottom: 18px;
-  }
-  .ExperienceSet {
-    margin-left: 500px;
-
-  }
-  .skillsSet {
-    margin-left: 46px;
-  }
-  .textColor {
-    color: orangered;
-  }
-
-  .social-links {
-    display: flex;
-    font-size: 51px;
-    margin-left: 800px;
-    display: flex;
-    margin-top: 30px;
-  }
-  .links {
-    margin-left: 170px;
-  }
-  .btn {
-    margin-right: 137px;
-  }
-  .contactHeading {
-    margin-top: 33px;
-    font-size: 48px;
-    margin-left: 800px;
-  }
-  #email, #phone{
-    margin-left: 900px;
-    color: white;
-    margin-top: 30px;
-  }
+.main-section {
+  padding: 20px;
+}
+.section {
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  border: 1px solid #e1e1e1;
+}
+.section-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007bff;
+  margin-bottom: 15px;
+}
+.about-me {
+  background-color: #ffffff;
+}
+.skill-section {
+  background: linear-gradient(135deg, #e9ecef 0%, #ffffff 100%);
+}
+.experience-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+}
+.section-content {
+  padding-left: 0;
+}
+.badge {
+  font-size: 14px;
+  padding: 8px 12px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  border-radius: 20px;
+}
+.badge.bg-primary {
+  background-color: #007bff;
+}
+.badge.bg-success {
+  background-color: #28a745;
+}
+.badge.bg-warning {
+  background-color: #ffc107;
+}
+.badge.bg-info {
+  background-color: #17a2b8;
+}
+.badge.bg-secondary {
+  background-color: #6c757d;
+}
+.experience-section .card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+.experience-section .card-title {
+  font-size: 1.25rem;
+  color: #007bff;
+}
+.experience-section .card-text {
+  font-size: 0.875rem;
+  color: #6c757d;
+}
+.contact-section .btn {
+  margin-right: 8px;
+  padding: 8px 15px;
+  border-radius: 25px;
+}
+.btn-dark {
+  background: linear-gradient(135deg, #343a40 0%, #4b4b4b 100%);
+  border-color: #343a40;
+}
+.btn-success {
+  background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+  border-color: #28a745;
+}
+.btn-primary {
+  background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+  border-color: #007bff;
+}

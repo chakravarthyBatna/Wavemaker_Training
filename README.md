@@ -16,4 +16,4 @@ This is Wavemaker training assignments. All assignments are uploaded in this Wav
 
 4. **Assignment 4 : Build Your Profile**
    - **Given on:** 01-08-2024
-    <img width="760" alt="Assignment_Four_Build_Your_Profile_Output" src="Assignment_Four_Build_Your_Profile\assets\Assignment_Four_Output.jpg">
+    <img width="760" alt="Assignment_Four_Build_Your_Profile_Output" src="Assignment_Four_Build_Your_Profile\assets\Assignment_Four_Build_Your_Profile_Output.jpg">
