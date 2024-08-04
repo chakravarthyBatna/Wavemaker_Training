@@ -61,27 +61,33 @@ body {
   padding-left: 0;
 }
 .badge {
-  font-size: 14px;
-  padding: 8px 12px;
+  font-size: 18px;
+  padding: 14px 21px;
   margin-right: 8px;
-  margin-bottom: 8px;
-  border-radius: 20px;
+  margin-bottom: 4px;
+  border-radius: 23px;
 }
 .badge.bg-primary {
-  background-color: #007bff;
+  background: linear-gradient(to right, #007bff, #6610f2);
+  color: white;
 }
 .badge.bg-success {
-  background-color: #28a745;
+  background: linear-gradient(to right, #28a745, #20c997);
+  color: white;
 }
 .badge.bg-warning {
-  background-color: #ffc107;
+  background: linear-gradient(to right, #ffc107, #fd7e14);
+  color: black;
 }
 .badge.bg-info {
-  background-color: #17a2b8;
+  background: linear-gradient(to right, #17a2b8, #00d4ff);
+  color: white;
 }
 .badge.bg-secondary {
-  background-color: #6c757d;
+  background: linear-gradient(to right, #6c757d, #adb5bd);
+  color: white;
 }
+
 .experience-section .card {
   border: none;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
