@@ -12,7 +12,7 @@ This is Wavemaker training assignments. All assignments are uploaded in this Wav
 
 3. **Assignment 3: Calculator using Bootstrap**
    - **Given on:** 01-08-2024
-    <img width="760" alt="Assignment_Three_Calculator_Using_Bootstrap_Output" src="Assignment_Three_Calculator_Using_Bootstrap\assets\Calculator_Output.jpg">
+   ![Calculator_Output](https://github.com/user-attachments/assets/b38319d2-8712-4272-b56d-78eaab18b725)
 
 4. **Assignment 4 : Build Your Profile**
    - **Given on:** 01-08-2024
