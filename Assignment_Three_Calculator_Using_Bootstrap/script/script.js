@@ -1,4 +1,5 @@
 const inputBoxDisplay = document.getElementById('inputBox');
+let memory = 0; 
 
 function handleInput(value) {
     const lastChar = inputBoxDisplay.value.slice(-1);
@@ -20,32 +21,25 @@ function clearEntry() {
 }
 
 function clearMemory() {
-    localStorage.removeItem('memory');
+    memory = 0;
     inputBoxDisplay.value = '';
 }
 
 function memoryRecall() {
-    const memory = localStorage.getItem('memory');
-    if (memory) {
-        inputBoxDisplay.value = memory;
-    }
+    inputBoxDisplay.value = memory.toString();
 }
 
 function memoryStore() {
-    localStorage.setItem('memory', inputBoxDisplay.value);
+    memory = parseFloat(inputBoxDisplay.value) || 0;
     inputBoxDisplay.value = '';
 }
 
 function memoryPlus() {
-    const memory = parseFloat(localStorage.getItem('memory')) || 0;
-    const display = parseFloat(inputBoxDisplay.value) || 0;
-    localStorage.setItem('memory', memory + display);
+    memory += parseFloat(inputBoxDisplay.value) || 0;
 }
 
 function memoryMinus() {
-    const memory = parseFloat(localStorage.getItem('memory')) || 0;
-    const display = parseFloat(inputBoxDisplay.value) || 0;
-    localStorage.setItem('memory', memory - display);
+    memory -= parseFloat(inputBoxDisplay.value) || 0;
 }
 
 function calculate() {
