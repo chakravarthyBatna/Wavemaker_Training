@@ -6,8 +6,9 @@ body {
   color: #ffffff;
 }
 .sidebar {
+  background-color: #abc9e8;
   height: 100vh; 
-  background-color: #f8f9fa;
+ 
   padding-top: 20px; 
 }
 .profile-section {
@@ -17,8 +18,9 @@ body {
 }
 .profile-section img {
   border-radius: 50%;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
+  border: 3px solid #007bff;
   margin-right: 15px;
 }
 .profile-section .name {
@@ -103,4 +105,52 @@ body {
   margin-left: 23px;
   margin-top: 4px;
   padding: 6px;
+}
+.edit-dialog {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.edit-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#save-edit,
+#cancel-edit {
+  margin-top: 10px;
+}
+.export-btn {
+  width: 100%;
+  background-color: rgb(247, 42, 42);
+    color: black;
+    border-color: black;
+    margin-bottom: 29px;
+    margin-top: 68px;
+}
+.import-btn {
+  font-size: 12px;
+  background-color: green;
+  width: 100%;
+}
+.priority-options {
+  font-size: 14px;
+}
+.form-control {
+  background-color: #e1e7d3;
+  color: black;
+}
+body {
+     background-color: #caddeb;
+}
+.list-group-item:last-child {
+  background-color: #e6d6e5;
+  color: black;
 }

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo App</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .dark-mode {
+            background-color: #333;
+            color: #f1f1f1;
+        }
+        .task-priority-low { background-color: #d4edda; }
+        .task-priority-medium { background-color: #fff3cd; }
+        .task-priority-high { background-color: #f8d7da; }
+        .sub-task-input {
+            display: none;
+            margin-top: 10px;
+        }
+        .sub-task-item { margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Todo App</h1>
+        <input type="text" id="input-box" class="form-control mb-2" placeholder="Enter task">
+        <input type="date" id="task-due-date" class="form-control mb-2">
+        <input type="time" id="task-due-time" class="form-control mb-2">
+        <select id="task-priority" class="form-control mb-2">
+            <option value="low">Low</option>
+            <option value="medium">Medium</option>
+            <option value="high">High</option>
+        </select>
+        <button class="btn btn-primary mb-2" onclick="addTask()">Add Task</button>
+        
+        <div id="list-container" class="list-group"></div>
+        
+        <!-- Edit Sub-task Dialog -->
+        <div class="modal fade" id="editSubTaskModal" tabindex="-1" role="dialog" aria-labelledby="editSubTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="editSubTaskModalLabel">Edit Sub-task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="edit-subtask-name" class="form-control" placeholder="Sub-task name">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="saveSubTaskEdit()">Save changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Add Sub-task Dialog -->
+        <div class="modal fade" id="addSubTaskModal" tabindex="-1" role="dialog" aria-labelledby="addSubTaskModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="addSubTaskModalLabel">Add Sub-task</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="text" id="new-subtask-name" class="form-control" placeholder="Sub-task name">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" onclick="saveNewSubTask()">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script1.js"></script>
+</body>
+</html>

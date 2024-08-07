@@ -1,0 +1,105 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    background-color: #f8f9fa;
+    padding: 20px;
+}
+
+.profile-section {
+    text-align: center;
+}
+
+.profile-section img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+
+.profile-section .name {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.todo-app {
+    padding: 20px;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+.dark-mode .sidebar {
+    background-color: #333;
+}
+
+.dark-mode .list-group-item {
+    background-color: #333;
+    color: #fff;
+}
+
+.list-group-item {
+    position: relative;
+}
+
+.ellipsis-menu {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #fff;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+.completed-tasks {
+    margin-top: 20px;
+}
+
+.completed-tasks h2 {
+    font-size: 1.5em;
+}
+
+.completed-tasks ul {
+    list-style: none;
+    padding: 0;
+}
+
+.completed-tasks ul li {
+    padding: 10px;
+    background-color: #f0f0f0;
+    margin-bottom: 5px;
+}
+
+.task-priority-low {
+    border-left: 5px solid green;
+}
+
+.task-priority-medium {
+    border-left: 5px solid orange;
+}
+
+.task-priority-high {
+    border-left: 5px solid red;
+}
