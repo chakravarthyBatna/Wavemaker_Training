@@ -20,4 +20,6 @@ This is Wavemaker training assignments. All assignments are uploaded in this Wav
 
 5. **Assignment : ToDo Application**
    
-    
+    <img width="760" alt="ToDo_Output" src="ToDo_App\assets\todo_output.jpg">
+    - **Dark Mode Output **
+    <img width="760" alt="ToDo_Output" src="ToDo_App\assets\todo_darkmode_output.jpg">
