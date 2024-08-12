@@ -56,7 +56,7 @@ function addTask() {
 function checkDuplicate(taskName, dueDate, dueTime) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     return tasks.some(task =>
-        task.taskName === taskName && task.dueDate === dueDate && task.dueTime === dueTime
+        task.taskName === taskName
     );
 }
 
@@ -150,12 +150,10 @@ function buildHtmlForEachCompletedTask(tasks) {
                 subtaskItem.classList.add('subtask-item');
                 subtaskItem.innerHTML = `
                     <div class="subtask-name">${subtask.subtaskName}</div>
-                    <div class="subtask-due-date-time">
-                        <span class="dot">•</span>
+                     <div class="subtask-due-date-time">
                         <span class="due-info">${subtask.subtaskDueDate}</span>
-                        <span class="dot">•</span>
                         <span class="due-info">${subtask.subtaskDueTime}</span>
-                    </div>
+                     </div>
                     <button class="edit-subtask" data-index="${index}">Edit</button>
                     <button class="delete-subtask" data-index="${index}">Delete</button>
                 `;
@@ -255,12 +253,10 @@ function buildHtmlForEachPendingTask(tasks) {
                 subtaskItem.classList.add('subtask-item');
                 subtaskItem.innerHTML = `
                     <div class="subtask-name">${subtask.subtaskName}</div>
-                    <div class="subtask-due-date-time">
-                        <span class="dot">•</span>
+                     <div class="subtask-due-date-time">
                         <span class="due-info">${subtask.subtaskDueDate}</span>
-                        <span class="dot">•</span>
                         <span class="due-info">${subtask.subtaskDueTime}</span>
-                    </div>
+                     </div>
                     <button class="edit-subtask" data-index="${index}">Edit</button>
                     <button class="delete-subtask" data-index="${index}">Delete</button>
                 `;
@@ -316,8 +312,8 @@ function openSubtaskDialog(taskItem) {
     dialog.classList.add('dialog');
 
     const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(4)');
+    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
+    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -352,8 +348,8 @@ function openSubtaskDialog(taskItem) {
 
         // Get the task details
         const taskNameElement = taskItem.querySelector('.task-name');
-        const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-        const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(4)');
+        const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
+        const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
 
         const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
         const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -373,8 +369,8 @@ function openEditSubtaskDialog(taskItem, subtaskIndex) {
     dialog.classList.add('dialog');
 
     const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(4)');
+    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
+    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -422,8 +418,8 @@ function updateSubtask(taskItem, subtaskIndex, subtaskName, subtaskDueDate, subt
 
     // Get the task details
     const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(4)');
+    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
+    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -460,8 +456,8 @@ function deleteSubtask(taskItem, subtaskIndex) {
 
     // Get the task details
     const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(4)');
+    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
+    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -500,7 +496,7 @@ function addSubtaskToLocalStorage(taskName, dueDate, dueTime, subtaskName, subta
 
     // Find the task in localStorage
     tasks = tasks.map(task => {
-        if (task.taskName === taskName && task.dueDate === dueDate && task.dueTime === dueTime) {
+        if (task.taskName === taskName) {
             // Add the new subtask
             task.subtasks.push({
                 subtaskName: subtaskName,
@@ -528,8 +524,8 @@ function initializeDetailsEvent() {
 function showDetailsDialog(listItem) {
     // Retrieve task details
     const taskNameElement = listItem.querySelector('.task-name');
-    const dueDateElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(2)'); // Updated selector
-    const dueTimeElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(4)'); // Updated selector
+    const dueDateElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(1)'); // Updated selector
+    const dueTimeElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(2)'); // Updated selector
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const taskDueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -607,20 +603,20 @@ function showEditDialog(listItem) {
     const editDialog = document.createElement('div');
     editDialog.classList.add('edit-dialog');
     editDialog.innerHTML = `
-        <div class="edit-dialog-content">
-            <h3>Edit Task</h3>
-            <input type="text" id="edit-task-name" class="form-control" ">
-            <input type="date" id="edit-task-due-date" class="form-control" ">
-            <input type="time" id="edit-task-due-time" class="form-control" }">
-            <select id="edit-task-priority" class="form-control">
-                <option value="low" ${priority === 'low' ? 'selected' : ''}>Low Priority</option>
-                <option value="medium" ${priority === 'medium' ? 'selected' : ''}>Medium Priority</option>
-                <option value="high" ${priority === 'high' ? 'selected' : ''}>High Priority</option>
-            </select>
-            <button id="save-edit" class="btn btn-primary">Save</button>
-            <button id="cancel-edit" class="btn btn-secondary">Cancel</button>
-        </div>
-    `;
+    <div class="edit-dialog-content">
+        <h3>Edit Task</h3>
+        <input type="text" id="edit-task-name" class="form-control" value="${taskName}">
+        <input type="date" id="edit-task-due-date" class="form-control" value="${taskDueDateValue}">
+        <input type="time" id="edit-task-due-time" class="form-control" value="${taskDueTimeValue}">
+        <select id="edit-task-priority" class="form-control">
+            <option value="low" ${priority === 'low' ? 'selected' : ''}>Low Priority</option>
+            <option value="medium" ${priority === 'medium' ? 'selected' : ''}>Medium Priority</option>
+            <option value="high" ${priority === 'high' ? 'selected' : ''}>High Priority</option>
+        </select>
+        <button id="save-edit" class="btn btn-primary">Save</button>
+        <button id="cancel-edit" class="btn btn-secondary">Cancel</button>
+    </div>
+`;
 
     document.body.appendChild(editDialog);
 
@@ -653,18 +649,15 @@ function updateTaskData() {
 }
 
 function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority) {
+    const editedTaskUUID = document.getElementById('edit-task-uuid').value;
+
     // Retrieve existing tasks from localStorage
     console.log('in updateTaskToLocalStorage', editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     // Update the task
     tasks = tasks.map(task => {
-        console.log('entering to the tasks map in updateTask');
-
-        console.log(task.taskName, editedTaskName, task.dueDate, editedTaskDueDate, task.dueTime, editedTaskDueTime);
-        if ((task.taskName === editedTaskName && task.dueDate === editedTaskDueDate && task.dueTime === editedTaskDueTime)) {
-
-            console.log('in the tasksMap', taskName, dueDate, dueTime, priority);
+        if (task.taskUUID === editedTaskUUID) {
             return {
                 ...task,
                 taskName: editedTaskName,
@@ -675,10 +668,12 @@ function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskD
         }
         return task;
     });
-    console.log('saving update task to localStorage');
+
+    console.log('saving updated task to localStorage');
     // Save updated tasks to localStorage
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
 function scheduleNotification(task, dueDate, dueTime) {
     if (!("Notification" in window)) {
         alert("This browser does not support desktop notifications");
