@@ -154,8 +154,6 @@ function buildHtmlForEachCompletedTask(tasks) {
                         <span class="due-info">${subtask.subtaskDueDate}</span>
                         <span class="due-info">${subtask.subtaskDueTime}</span>
                      </div>
-                    <button class="edit-subtask" data-index="${index}">Edit</button>
-                    <button class="delete-subtask" data-index="${index}">Delete</button>
                 `;
                 subtaskList.appendChild(subtaskItem);
             });
@@ -257,8 +255,6 @@ function buildHtmlForEachPendingTask(tasks) {
                         <span class="due-info">${subtask.subtaskDueDate}</span>
                         <span class="due-info">${subtask.subtaskDueTime}</span>
                      </div>
-                    <button class="edit-subtask" data-index="${index}">Edit</button>
-                    <button class="delete-subtask" data-index="${index}">Delete</button>
                 `;
                 subtaskList.appendChild(subtaskItem);
             });
@@ -297,16 +293,13 @@ function initializeSubtaskEvents() {
         }
     });
 }
-
-function attachAddSubtaskEvent(taskItem) {
-    const taskItems = listContainer.querySelectorAll('.task-item');
-    taskItems.forEach(listItem => {
-        listItem.querySelector('.add-subtask').onclick = function (event) {
-            event.preventDefault();
-            openSubtaskDialog(taskItem);
-        };
-    });
+function attachAddSubtaskEvent(listItem) {
+    listItem.querySelector('.add-subtask').onclick = function (event) {
+                event.preventDefault();
+                openSubtaskDialog(listItem);   
+    };
 }
+
 function openSubtaskDialog(taskItem) {
     const dialog = document.createElement('div');
     dialog.classList.add('dialog');
@@ -649,7 +642,7 @@ function updateTaskData() {
 }
 
 function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority) {
-    const editedTaskUUID = document.getElementById('edit-task-uuid').value;
+
 
     // Retrieve existing tasks from localStorage
     console.log('in updateTaskToLocalStorage', editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
@@ -657,7 +650,10 @@ function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskD
 
     // Update the task
     tasks = tasks.map(task => {
+         console.log(task.taskName === editedTaskName);
         if (task.taskName === editedTaskName) {
+            console.log('in tasks.map in updeate to locaStorage ');
+            console.log(task.taskName === editedTaskName);
             return {
                 ...task,
                 taskName: editedTaskName,
