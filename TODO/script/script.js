@@ -102,6 +102,11 @@ function buildHtmlForEachCompletedTask(tasks) {
     tasks.forEach(task => {
         const listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'task-item');
+        // Set task UUID as a hidden div
+        const uuidDiv = document.createElement('div');
+        uuidDiv.style.display = 'none'; // This hides the element
+        uuidDiv.textContent = task.taskUUID;
+        listItem.appendChild(uuidDiv);
 
         switch (task.priority) {
             case 'low':
@@ -132,7 +137,7 @@ function buildHtmlForEachCompletedTask(tasks) {
         `;
 
         listItem.innerHTML = `
-            <div display="hidden">${task.taskUUID}</div>
+           <div style="display: none;">${task.taskUUID}</div>
             <div class="task-name">${task.taskName}</div>
             <div class="task-due-date-time">
                 <span class="due-info">${task.dueDate}</span>
@@ -295,8 +300,8 @@ function initializeSubtaskEvents() {
 }
 function attachAddSubtaskEvent(listItem) {
     listItem.querySelector('.add-subtask').onclick = function (event) {
-                event.preventDefault();
-                openSubtaskDialog(listItem);   
+        event.preventDefault();
+        openSubtaskDialog(listItem);
     };
 }
 
@@ -598,7 +603,6 @@ function showEditDialog(listItem) {
     editDialog.innerHTML = `
     <div class="edit-dialog-content">
         <h3>Edit Task</h3>
-        <input type="text" id="edit-task-name" class="form-control" value="${taskName}">
         <input type="date" id="edit-task-due-date" class="form-control" value="${taskDueDateValue}">
         <input type="time" id="edit-task-due-time" class="form-control" value="${taskDueTimeValue}">
         <select id="edit-task-priority" class="form-control">
@@ -615,7 +619,7 @@ function showEditDialog(listItem) {
 
     document.getElementById('save-edit').onclick = function () {
 
-        updateTaskData();
+        updateTaskData(taskName);
     };
 
     document.getElementById('cancel-edit').onclick = function () {
@@ -624,14 +628,14 @@ function showEditDialog(listItem) {
 }
 
 
-function updateTaskData() {
+function updateTaskData(taskName) {
     console.log('entering to updateTaskData function');
-    const editedTaskName = document.getElementById('edit-task-name').value;
+   
     const editedTaskDueDate = document.getElementById('edit-task-due-date').value;
     const editedTaskDueTime = document.getElementById('edit-task-due-time').value;
     const editedTaskPriority = document.getElementById('edit-task-priority').value;
 
-    updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
+    updateTaskToLocalStorage(taskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
     // Remove the edit dialog
     const editDialog = document.querySelector('.edit-dialog');
     if (editDialog) {
@@ -650,7 +654,7 @@ function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskD
 
     // Update the task
     tasks = tasks.map(task => {
-         console.log(task.taskName === editedTaskName);
+        console.log(task.taskName === editedTaskName);
         if (task.taskName === editedTaskName) {
             console.log('in tasks.map in updeate to locaStorage ');
             console.log(task.taskName === editedTaskName);
