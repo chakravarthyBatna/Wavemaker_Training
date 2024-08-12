@@ -187,7 +187,7 @@ function showPendingTasks(tasks) {
         const dateComparison = new Date(a.dueDate) - new Date(b.dueDate);
         return dateComparison;
     });
-    buildHtmlForEachTask(tasks);
+    buildHtmlForEachPendingTask(tasks);
     // Re-initialize functionalities for the new task items
     initializeSortable();  // Drag and drop
     initializeEllipsisMenu();  // Ellipsis menu (three dots)
@@ -197,11 +197,16 @@ function showPendingTasks(tasks) {
 }
 
 
-function buildHtmlForEachTask(tasks) {
+function buildHtmlForEachPendingTask(tasks) {
     // Build the HTML for each task and append it to the UI
     tasks.forEach(task => {
         const listItem = document.createElement('li');
         listItem.classList.add('list-group-item', 'task-item');
+        // Set task UUID as a hidden div
+        const uuidDiv = document.createElement('div');
+        uuidDiv.style.display = 'none'; // This hides the element
+        uuidDiv.textContent = task.taskUUID;
+        listItem.appendChild(uuidDiv);
 
         switch (task.priority) {
             case 'low':
@@ -232,7 +237,7 @@ function buildHtmlForEachTask(tasks) {
         `;
 
         listItem.innerHTML = `
-            <div display="hidden">${task.taskUUID}</div>
+           <div style="display: none;">${task.taskUUID}</div>
             <div class="task-name">${task.taskName}</div>
             <div class="task-due-date-time">
                 <span class="due-info">${task.dueDate}</span>
@@ -587,8 +592,9 @@ function attachEllipsisEvent(ellipsis, listItem) {
 
 function showEditDialog(listItem) {
     const taskNameElement = listItem.querySelector('.task-name');
-    const dueDateElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(1)'); // Ensure this points to the date
-    const dueTimeElement = listItem.querySelector('.task-due-date-time .due-info:nth-child(1)'); // Ensure this points to the time
+    const dueDateElement = listItem.querySelector('.task-due-date-time .due-info:nth-of-type(1)');
+    const dueTimeElement = listItem.querySelector('.task-due-date-time .due-info:nth-of-type(2)');
+
 
     const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
     const taskDueDateValue = dueDateElement ? dueDateElement.textContent.trim() : '';
@@ -637,14 +643,18 @@ function updateTaskData() {
     const editedTaskPriority = document.getElementById('edit-task-priority').value;
 
     updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
-
+    // Remove the edit dialog
+    const editDialog = document.querySelector('.edit-dialog');
+    if (editDialog) {
+        document.body.removeChild(editDialog);
+    }
     // Call showAllTasks to update the UI
     showAllTasks();
 }
 
 function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority) {
     // Retrieve existing tasks from localStorage
-    console.log('in updateTaskToLocalStorage',editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
+    console.log('in updateTaskToLocalStorage', editedTaskName, editedTaskDueDate, editedTaskDueTime, editedTaskPriority);
     let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
     // Update the task
@@ -652,7 +662,7 @@ function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskD
         console.log('entering to the tasks map in updateTask');
 
         console.log(task.taskName, editedTaskName, task.dueDate, editedTaskDueDate, task.dueTime, editedTaskDueTime);
-        if (task.taskName === editedTaskName && task.dueDate === editedTaskDueDate && task.dueTime === editedTaskDueTime) {
+        if ((task.taskName === editedTaskName && task.dueDate === editedTaskDueDate && task.dueTime === editedTaskDueTime)) {
 
             console.log('in the tasksMap', taskName, dueDate, dueTime, priority);
             return {
