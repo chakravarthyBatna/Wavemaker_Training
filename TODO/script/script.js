@@ -176,17 +176,39 @@ function buildHtmlForEachCompletedTask(tasks) {
 }
 
 function showPendingTasks(tasks) {
-    // Clear the current task list in the UI
     listContainer.innerHTML = '';
+
+    // Get sort order from select elements
+    const sortPriorityValue = sortPriority.value;
+    const sortDueDateValue = sortDueDate.value;
 
     // Sort tasks based on priority and due date
     tasks.sort((a, b) => {
-        const priorityOrder = { high: 1, medium: 2, low: 3 };
-        const priorityComparison = priorityOrder[a.priority] - priorityOrder[b.priority];
-        if (priorityComparison !== 0) return priorityComparison;
+        let priorityComparison = 0;
+        let dateComparison = 0;
 
-        const dateComparison = new Date(a.dueDate) - new Date(b.dueDate);
-        return dateComparison;
+        if (sortPriorityValue) {
+            const priorityOrder = { high: 1, medium: 2, low: 3 };
+            priorityComparison = priorityOrder[a.priority] - priorityOrder[b.priority];
+            if (sortPriorityValue === 'desc') {
+                priorityComparison *= -1; // Reverse the order if descending
+            }
+        }
+
+        if (sortDueDateValue) {
+            // Ensure the dueDate fields are valid dates
+            const dateA = new Date(a.dueDate);
+            const dateB = new Date(b.dueDate);
+
+            // Compare dates
+            dateComparison = dateA - dateB;
+            if (sortDueDateValue === 'desc') {
+                dateComparison *= -1; // Reverse the order if descending
+            }
+        }
+
+        // Return priorityComparison if it's not zero, otherwise return dateComparison
+        return priorityComparison || dateComparison;
     });
     buildHtmlForEachPendingTask(tasks);
     // Re-initialize functionalities for the new task items
@@ -273,31 +295,7 @@ function buildHtmlForEachPendingTask(tasks) {
         attachAddSubtaskEvent(listItem);
     });
 }
-function initializeSubtaskEvents() {
-    const subtaskItems = listContainer.querySelectorAll('.subtask-item');
-    subtaskItems.forEach(subtaskItem => {
-        const editButton = subtaskItem.querySelector('.edit-subtask');
-        const deleteButton = subtaskItem.querySelector('.delete-subtask');
 
-        if (editButton) {
-            editButton.onclick = function (event) {
-                event.preventDefault();
-                const index = editButton.getAttribute('data-index');
-                const taskItem = subtaskItem.closest('.task-item');
-                openEditSubtaskDialog(taskItem, index);
-            };
-        }
-
-        if (deleteButton) {
-            deleteButton.onclick = function (event) {
-                event.preventDefault();
-                const index = deleteButton.getAttribute('data-index');
-                const taskItem = subtaskItem.closest('.task-item');
-                deleteSubtask(taskItem, index);
-            };
-        }
-    });
-}
 function attachAddSubtaskEvent(listItem) {
     listItem.querySelector('.add-subtask').onclick = function (event) {
         event.preventDefault();
@@ -361,123 +359,6 @@ function openSubtaskDialog(taskItem) {
     });
 }
 
-
-function openEditSubtaskDialog(taskItem, subtaskIndex) {
-    const dialog = document.createElement('div');
-    dialog.classList.add('dialog');
-
-    const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-
-    const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
-    const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
-    const dueTime = dueTimeElement ? dueTimeElement.textContent.trim() : '';
-
-    dialog.innerHTML = `
-        <h3>Edit Subtask</h3>
-        <label for="edit-subtask-name">Subtask Name:</label>
-        <input type="text" id="edit-subtask-name" placeholder="Enter subtask name">
-        <label for="edit-subtask-due-date">Due Date:</label>
-        <input type="date" id="edit-subtask-due-date">
-        <label for="edit-subtask-due-time">Due Time:</label>
-        <input type="time" id="edit-subtask-due-time">
-        <button id="confirm-edit-subtask">Confirm</button>
-        <button id="cancel-edit-subtask">Cancel</button>
-    `;
-
-    document.body.appendChild(dialog);
-
-    const confirmButton = dialog.querySelector('#confirm-edit-subtask');
-    const cancelButton = dialog.querySelector('#cancel-edit-subtask');
-
-    confirmButton.addEventListener('click', function () {
-        const subtaskName = dialog.querySelector('#edit-subtask-name').value.trim();
-        const subtaskDueDate = dialog.querySelector('#edit-subtask-due-date').value;
-        const subtaskDueTime = dialog.querySelector('#edit-subtask-due-time').value;
-
-        if (subtaskName === '') {
-            alert('Subtask Name is required.');
-            return;
-        }
-
-        updateSubtask(taskItem, subtaskIndex, subtaskName, subtaskDueDate, subtaskDueTime);
-        document.body.removeChild(dialog);
-    });
-
-    cancelButton.addEventListener('click', function () {
-        document.body.removeChild(dialog);
-    });
-}
-
-function updateSubtask(taskItem, subtaskIndex, subtaskName, subtaskDueDate, subtaskDueTime) {
-    // Retrieve the tasks from localStorage
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-    // Get the task details
-    const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-
-    const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
-    const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
-    const dueTime = dueTimeElement ? dueTimeElement.textContent.trim() : '';
-
-    // Find the task in localStorage
-    tasks = tasks.map(task => {
-        if (task.taskName === taskName && task.dueDate === dueDate && task.dueTime === dueTime) {
-            // Update the subtask
-            task.subtasks[subtaskIndex] = {
-                subtaskName: subtaskName,
-                subtaskDueDate: subtaskDueDate,
-                subtaskDueTime: subtaskDueTime
-            };
-        }
-        return task;
-    });
-
-    // Save the updated tasks back to localStorage
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    // Update the UI with the updated subtask
-    const subtaskItem = taskItem.querySelector(`.subtask-item:nth-child(${parseInt(subtaskIndex) + 1})`);
-    if (subtaskItem) {
-        subtaskItem.querySelector('.subtask-name').textContent = subtaskName;
-        subtaskItem.querySelector('.subtask-due-date-time .due-info:nth-child(1)').textContent = subtaskDueDate;
-        subtaskItem.querySelector('.subtask-due-date-time .due-info:nth-child(2)').textContent = subtaskDueTime;
-    }
-}
-
-function deleteSubtask(taskItem, subtaskIndex) {
-    // Retrieve the tasks from localStorage
-    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-
-    // Get the task details
-    const taskNameElement = taskItem.querySelector('.task-name');
-    const dueDateElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(1)');
-    const dueTimeElement = taskItem.querySelector('.task-due-date-time .due-info:nth-child(2)');
-
-    const taskName = taskNameElement ? taskNameElement.textContent.trim() : '';
-    const dueDate = dueDateElement ? dueDateElement.textContent.trim() : '';
-    const dueTime = dueTimeElement ? dueTimeElement.textContent.trim() : '';
-
-    // Find the task in localStorage and remove the subtask
-    tasks = tasks.map(task => {
-        if (task.taskName === taskName && task.dueDate === dueDate && task.dueTime === dueTime) {
-            task.subtasks.splice(subtaskIndex, 1);
-        }
-        return task;
-    });
-
-    // Save the updated tasks back to localStorage
-    localStorage.setItem('tasks', JSON.stringify(tasks));
-
-    // Remove the subtask item from the UI
-    const subtaskItem = taskItem.querySelector(`.subtask-item:nth-child(${parseInt(subtaskIndex) + 1})`);
-    if (subtaskItem) {
-        subtaskItem.remove();
-    }
-}
 
 function addSubtaskToTask(taskName, dueDate, dueTime, subtaskName, subtaskDueDate, subtaskDueTime) {
 
