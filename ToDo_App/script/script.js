@@ -11,7 +11,7 @@ const sortPriority = document.getElementById('sort-priority');
 
 sortPriority.addEventListener('change', showTask); //showTask called when we use the sort by priority 
 sortDueDate.addEventListener('change', showTask);  //showTask called when we use the sort by due-date
-localStorage.clear();
+// localStorage.clear();
 function addTask() {
     if (inputBox.value === '') {
         alert('You Must Write Something for a Task');
@@ -156,16 +156,19 @@ function openSubtaskDialog(taskItem) {
     });
 }
 function addSubtaskToTask(taskItem, subtaskName, subtaskDueDate, subtaskDueTime) {
+    // Find or create the subtask list (ul) element
     let subtaskList = taskItem.querySelector('.subtask-list');
     if (!subtaskList) {
         console.log('No subtask list found, creating a new one.');
-        subtaskList = document.createElement('li');
+        subtaskList = document.createElement('ul'); // Changed to ul for proper nesting
         subtaskList.classList.add('subtask-list');
+        taskItem.appendChild(subtaskList);
+        console.log('Subtask list appended to task item.');
     } else {
         console.log('Subtask list found.');
     }
 
-    // Create the subtask item
+    // Create the subtask item (li) element
     const subtaskItem = document.createElement('li');
     subtaskItem.classList.add('subtask-item');
     subtaskItem.innerHTML = `
@@ -181,15 +184,19 @@ function addSubtaskToTask(taskItem, subtaskName, subtaskDueDate, subtaskDueTime)
     // Append the subtask item to the subtask list
     subtaskList.appendChild(subtaskItem);
     console.log('Subtask item added:', subtaskItem);
-    taskItem.appendChild(subtaskList);
-    // // Append the subtask list to the task item if it's not already there
-    // if (!taskItem.contains(subtaskList)) {
+     // Append the subtask list to the task item if it's not already there
+     taskItem.appendChild(subtaskList);
+     console.log('sub-task added to the listItem');
+    //  if (!taskItem.contains(subtaskList)) {
     //     taskItem.appendChild(subtaskList);
     //     console.log('Subtask list appended to task item.');
     // } else {
     //     console.log('Subtask list already present.');
     // }
+    saveData();
+    showTask();
 }
+
 
 
 function initializeDetailsEvent() {
@@ -440,6 +447,7 @@ function saveData() {
 function showTask() {
     // Load tasks from localStorage
     listContainer.innerHTML = localStorage.getItem('data') || '';
+    debugger;
     const tasks = Array.from(listContainer.querySelectorAll('.task-item'));
 
     const sortByPriority = sortPriority.value;

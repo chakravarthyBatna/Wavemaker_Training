@@ -301,18 +301,14 @@ body {
   background-color: #f9f9f9;
   border-radius: 3px;
 }
-.task-item ul.subtask-list {
-  margin-top: 10px;
-  padding-left: 20px;
-  display: block;
-  background-color: #fff; /* Ensure a contrasting background */
+.subtask-list {
+  list-style-type: none; /* Removes default bullet points */
+  margin-left: 20px; /* Indent subtasks */
+  padding-left: 0; /* Remove extra padding */
 }
 
-.task-item ul.subtask-list li.subtask-item {
-  margin-bottom: 5px;
-  padding: 5px;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-  display: block;
+.subtask-item {
+  margin-top: 5px; /* Adds some space between subtasks */
 }
+
 

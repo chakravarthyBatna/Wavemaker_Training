@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <!-- Sidebar -->
+            <nav class="col-md-3 col-lg-2 sidebar">
+                <!-- My Profile Section -->
+                <div class="profile-section">
+                    <img src="assets/my_photo.jpg" alt="Profile Image">
+                    <div class="name">Chakravarthy Batna</div>
+                </div>
+                <div class="search-category-div mt-3">
+                    <input type="text" id="search-bar" class="form-control" placeholder="Search a Task">
+                </div>
+                <div class="search-category-div mt-3">
+                    <select id="filter-tasks" class="form-control">
+                        <option value="all">Show All</option>
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+                <div class="search-category-div mt-3">
+                    <select id="sort-priority" class="form-control">
+                        <option value="none">Sort By Priority</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+                <div class="search-category-div mt-3">
+                    <select id="sort-due-date" class="form-control">
+                        <option value="none">Sort By Due Date</option>
+                        <option value="asc">Ascending</option>
+                        <option value="desc">Descending</option>
+                    </select>
+                </div>
+                <div class="export-import-div mt-3">
+                    <button id="export-tasks" class="btn export-btn btn-secondary">Export Tasks</button>
+                    <input type="file" id="import-tasks" accept=".json">
+                    <button onclick="document.getElementById('import-tasks').click();" class="import-btn">Import</button>
+                </div>
+            </nav>
+            <!-- Main content -->
+            <main class="col-md-9 col-lg-10">
+                <div class="todo-app">
+                    <div class="row">
+                        <div class="col-11">
+                            <h2 class="text-center">My Day</h2>
+                        </div>
+                        <div class="col-1">
+                            <button id="dark-mode-toggle" class="btn btn-dark">🌙</button>
+                        </div>
+                    </div>
+                    <div class="row input-group mb-3">
+                        <div class="col-md-3">
+                            <input type="text" id="input-box" class="form-control" placeholder="Add a task">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="date" id="task-due-date" class="form-control" placeholder="Due Date">
+                        </div>
+                        <div class="col-md-3">
+                            <input type="time" id="task-due-time" class="form-control" placeholder="Due Time">
+                        </div>
+                        <div class="col-md-3">
+                            <select id="task-priority" class="form-control">
+                                <option value="low">Low Priority</option>
+                                <option value="medium">Medium Priority</option>
+                                <option value="high">High Priority</option>
+                            </select>
+                        </div>
+                        <div class="col-md-12 mt-3 text-center">
+                            <button onclick="addTask()" id="add-button" class="btn btn-primary">Add</button>
+                        </div>
+                    </div>
+                    <ul class="list-group" id="list-container"></ul>
+                    <div class="completed-tasks mt-4">
+                        <h2>Completed Tasks</h2>
+                        <ul id="completed-list-container" class="list-unstyled"></ul>
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+    <script src="script/script.js"></script>
+    <script src="script/export_import_script.js"></script>
+    <!-- <script src="script/myscript.js"></script> -->
+</body>
+</html>

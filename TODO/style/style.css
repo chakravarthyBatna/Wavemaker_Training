@@ -1,0 +1,359 @@
+body {
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+  }
+  .sidebar {
+    background-color: #abc9e8;
+    height: 100vh; 
+   
+    padding-top: 20px; 
+  }
+  .profile-section {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+  }
+  .profile-section img {
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    border: 3px solid #007bff;
+    margin-right: 15px;
+  }
+  .profile-section .name {
+    font-weight: bold;
+  }
+  .sidebar a {
+    display: block;
+    color: #000; 
+    padding: 10px 15px; 
+    text-decoration: none; 
+  }
+  .sidebar a:hover {
+    background-color: #ddd; 
+  }
+  .btn-add-list {
+    margin-top: 20px;
+    display: block; 
+    width: 100%; 
+  }
+  .ellipsis-menu {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.2em;
+  }
+  .dropdown-menu {
+    display: none;
+    position: absolute;
+    background-color: #f8f9fa;
+    border: 1px solid #ddd;
+    padding: 10px;
+    list-style-type: none;
+    margin: 0;
+    right: 0;
+    left: auto;
+    width: 150px;
+  }
+  .dropdown-menu a {
+    text-decoration: none;
+    color: #000;
+    display: block;
+    padding: 5px 10px;
+  }
+  .dropdown-menu a:hover {
+    background-color: #ddd;
+  }
+  .search-category-div {
+    margin-bottom: 23px;
+  }
+  .task-item {
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  .dark-mode .task-item {
+    background-color: #333;
+    color: #fff;
+  }
+  .task-priority-low {
+    border-left: 5px solid green;
+  }
+  .task-priority-medium {
+    border-left: 5px solid orange;
+  }
+  .task-priority-high {
+    border-left: 5px solid red;
+  }
+  .dark-mode .sidebar {
+    background-color: #333;
+    color: #fff;
+  }
+  .dark-mode .sidebar a {
+    color: #fff;
+  }
+  .dark-mode .sidebar a:hover {
+    background-color: #555;
+  }
+  #dark-mode-toggle {
+    margin-left: 23px;
+    margin-top: 4px;
+    padding: 6px;
+  }
+  .edit-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+  }
+  
+  .edit-dialog-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  #save-edit,
+  #cancel-edit {
+    margin-top: 10px;
+  }
+  .export-btn {
+    width: 100%;
+     background-color: rgb(19, 106, 245);
+     color: white;
+      margin-bottom: 29px;
+      margin-top: 68px;
+  }
+  .import-btn {
+    font-size: 12px;
+    background-color: green;
+    width: 100%;
+  }
+  .priority-options {
+    font-size: 14px;
+  }
+  .form-control {
+    background-color: #e1e7d3;
+    color: black;
+  }
+  .dark-mode .form-control {
+    background-color: #000;
+    color: wheat;
+  }
+  
+  body {
+       background-color: #caddeb;
+  }
+  .task-name {
+    font-weight: bold; 
+  }
+  
+  .task-due-date-time {
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 0.9em; 
+    color: rgba(0, 0, 0, 0.5); 
+  }
+  .dark-mode .task-due-date-time {
+    color: #ffffff; /* White color for dark mode */
+  }
+  .dark-mode .form-control::placeholder {
+    color: wheat; /* Placeholder text color in dark mode */
+  }
+  
+  /* For time and date input types */
+  .dark-mode input[type="time"]::-webkit-calendar-picker-indicator,
+  .dark-mode input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(1) brightness(1.5); /* Adjusts the color of calendar pickers in dark mode */
+  }
+  .dot {
+    margin-left: 20px;
+    display: inline-block;
+    font-size: 1.5em; 
+    margin-right: 5px;
+    text-align: center; 
+  }
+  .due-info {
+    margin: 0 5px; 
+  }
+  .completion-info {
+    display: block;
+    font-size: 0.85em;
+    color: #888;
+    margin-left: 20px;
+  }
+  .add-sub-task-btn {
+    margin-left: 17px;
+    font-size: 10px;
+    width: 81px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-sub-task-btn:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+  }
+  
+  
+  /* .list-group-item:last-child {
+    background-color: #e6d6e5;
+    color: black;
+  } */
+  
+  .details-dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: 1px solid #ccc;
+    padding: 20px;
+    z-index: 1000; /* Ensure it's on top of other elements */
+    display: none; /* Initially hidden */
+  }
+  
+  .overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999; /* Just below the dialog */
+    display: none; /* Initially hidden */
+  }
+  /* Dark mode styles for the details-dialog */
+  .dark-mode .details-dialog {
+    background-color: #000; /* Black background */
+    color: wheat; /* White text */
+    border: 1px solid #333; /* Darker border */
+  }
+  
+  .dark-mode .details-dialog h2 {
+    color: black; /* Black heading */
+  }
+  
+  .dark-mode .details-dialog button {
+    background-color: #333; /* Darker button background */
+    color: wheat; /* Button text color */
+  }
+  
+  .dark-mode .details-dialog button:hover {
+    background-color: #555; /* Darker button background on hover */
+  }
+  
+  /* //////////////////// */
+  .dialog {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .dialog h3 {
+    margin-bottom: 15px;
+  }
+  
+  .dialog label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .dialog input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+  }
+  
+  .dialog button {
+    padding: 8px 15px;
+    margin-right: 10px;
+  }
+  
+/* General subtask styling */
+.subtask-container {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f9f9f9;
+  }
+  
+  .subtask-name {
+    flex-grow: 1;
+    font-size: 16px;
+  }
+  
+  /* Button container to align edit and delete buttons */
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  /* Style for the edit and delete buttons */
+  .button-container button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-size: 14px;
+  }
+  
+  .button-container button.delete {
+    background-color: #dc3545;
+  }
+  
+  .button-container button.edit {
+    background-color: #007bff;
+  }
+  
+  .button-container button:hover {
+    opacity: 0.9;
+  }
+  
+  /* Make sure buttons are initially hidden if needed */
+  .button-container.hidden {
+    display: none;
+  }
+  
+     /* Additional styles for import button */
+     .import-btn {
+        display: inline-block;
+        cursor: pointer;
+        color: white;
+        padding: 0;
+        font-size: 1rem;
+    }
+
+    .import-btn:hover {
+        text-decoration: none;
+    }
+
+    #import-tasks {
+        display: none;
+    }
