@@ -657,7 +657,7 @@ function updateTaskToLocalStorage(editedTaskName, editedTaskDueDate, editedTaskD
 
     // Update the task
     tasks = tasks.map(task => {
-        if (task.taskUUID === editedTaskUUID) {
+        if (task.taskName === editedTaskName) {
             return {
                 ...task,
                 taskName: editedTaskName,
